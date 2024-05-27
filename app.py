@@ -1,4 +1,7 @@
+#venv/Lib/site-packages/speech_recognition/recognizers/google.py
+
 from openai import OpenAI
+import os
 from utils import record_audio, play_audio
 
 client = OpenAI()
@@ -31,3 +34,5 @@ while True:
 
   response.stream_to_file('output.mp3')
   play_audio('output.mp3')
+
+  os.remove('output.mp3')
