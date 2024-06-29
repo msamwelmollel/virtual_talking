@@ -6,7 +6,7 @@ def record_audio(file_path):
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
         print("Please say something...")
-        audio_data = recognizer.listen(source)
+        audio_data = recognizer.listen(source, timeout=10, phrase_time_limit=10)
         print("Recording complete.")
         with open(file_path, "wb") as audio_file:
             audio_file.write(audio_data.get_wav_data())
